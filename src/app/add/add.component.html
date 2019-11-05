@@ -1,0 +1,58 @@
+<form (ngSubmit)="addAlbum()" #addForm="ngForm">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th colspan="2">Add Album</th>
+      </tr>
+    </thead>
+
+    <tr>
+      <td width="15%"><label for="id">Album ID</label></td>
+      <td><input name="id" [(ngModel)]="album.id" #id=ngModel required pattern="[0-9]{1,}" placeholder="Enter Album ID">
+        <span *ngIf="id.touched && id.invalid && 
+      (id.errors.required || id.errors.pattern)" class="alert-warning">
+          Album ID is required
+        </span>
+      </td>
+    </tr>
+
+    <tr>
+      <td><label for="title">Title</label></td>
+      <td><input name="title" [(ngModel)]=album.title #title=ngModel required pattern="[A-Za-z]{1,}"
+          placeholder="Enter Album Title">
+        <span *ngIf="title.touched && title.invalid && 
+       (title.errors.required || title.errors.pattern)" class="alert-warning">
+          Album Title is required
+        </span>
+      </td>
+    </tr>
+
+    <tr>
+      <td><label for="artist">Artist</label></td>
+      <td><input name="artist" [(ngModel)]=album.artist #artist=ngModel required pattern="[A-Za-z]{1,}"
+          placeholder="Enter Artist name">
+        <span *ngIf="artist.touched && artist.invalid && 
+     (artist.errors.required || artist.errors.pattern)" class="alert-warning">
+          Artist Name is required
+        </span>
+      </td>
+    </tr>
+
+    <tr>
+      <td><label for="price">Price</label></td>
+      <td><input name="price" [(ngModel)]="album.price" #price=ngModel required pattern="[0-9]{1,}"
+          placeholder="Enter Price">
+        <span *ngIf="price.touched && price.invalid && 
+      (price.errors.required || price.errors.pattern)" class="alert-warning">
+          Price is required
+        </span>
+      </td>
+    </tr>
+
+    <tr>
+      <th colspan="2"><button id="btn" type="submit" [disabled]="!addForm.valid" class="btn btn-success">Save
+          Album</button>
+      </th>
+    </tr>
+  </table>
+</form>

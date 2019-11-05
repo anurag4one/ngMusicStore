@@ -1,0 +1,16 @@
+<table class="table table-bordered">
+  <tr>
+    <th>Album ID</th>
+    <th>Title</th>
+    <th>Artist</th>
+    <th>Price</th>
+    <th>Action</th>
+  </tr>
+  <tr *ngFor="let a of albums;let i = index">
+    <td>{{a.id}}</td>
+    <td>{{a.title}}</td>
+    <td>{{a.artist}}</td>
+    <td>{{a.price}}</td>
+    <td><button class="btn btn-warning" (click)="deleteAlbum(i)">Delete</button></td>
+  </tr>
+</table>
